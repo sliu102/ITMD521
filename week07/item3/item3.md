@@ -19,7 +19,7 @@ Item 3
 
 ## bz2 without combiner
 ### The execution time for 1990.txt is:
- ![image](https://github.com/sliu102/ITMD521/blob/master/week07/item3/1990wobz.jpeg)
+ ![image](https://github.com/sliu102/ITMD521/blob/master/week07/item3/1990wobz2.jpeg)
 ### The execution time for 90and92.txt is:
 ![image](https://github.com/sliu102/ITMD521/blob/master/week07/item3/90and92wobz2.jpeg)
 ### The execution time for 90-93.txt is:
