@@ -3,7 +3,7 @@ Item 2:With Combiner
 ### The execution time for 1990.txt is:
  ![image](https://github.com/sliu102/ITMD521/blob/master/week07/item2/1990.jpeg)
 ### The execution time for 90and92.txt is:
-![image](https://github.com/sliu102/ITMD521/blob/master/week07/item2/9092.jpeg)
+![image](https://github.com/sliu102/ITMD521/blob/master/week07/item2/90and92.jpeg)
 ### The execution time for 90-93.txt is:
 ![image](https://github.com/sliu102/ITMD521/blob/master/week07/item2/90-93.jpeg)
 
