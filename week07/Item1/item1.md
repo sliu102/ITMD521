@@ -9,5 +9,5 @@ Item 1
 
 ### From the result we can see it is much more efficient for MR job running on real cluster. The reason is as follows:
 
-###The amount of resources currently in use is:
+###The amount of resources currently in use is:77GB
 ### My own PC is 4GB.
