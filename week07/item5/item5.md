@@ -7,5 +7,5 @@ Item 4:using native library
 ### The execution time for 90-93.txt is:
 ![image](https://github.com/sliu102/ITMD521/blob/master/week07/item5/90-93.jpeg)
 
-### Average increasing percentages: 
+### Average increasing percentages:13.4% 
 
