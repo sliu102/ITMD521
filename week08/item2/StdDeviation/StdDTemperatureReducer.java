@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Text;
@@ -11,23 +13,29 @@ public class StdDTemperatureReducer
   public void reduce(Text key, Iterable<IntWritable> values,
       Context context)
       throws IOException, InterruptedException {
+    
+    ArrayList<Integer> list = new ArrayList<Integer>();
+    
+    for (IntWritable value : values) {
+      list.add(value.get());
+    }
 
-    int count = 0;
+    Collections.sort(list);
+    int size = list.size();
     int sum = 0;
 
-    for (IntWritable value : values) {
-      count++;
-      sum += value.get();
+    for (int i=0; i<size; i++) {
+      sum += list.get(i);
     }
 
-    int mean = sum/count;
-    int variance = 0;
-    int sum2 =0;
+    int mean = sum/size;
+    double sum2 =0.0;
 
-    for (IntWritable value : values){
-      sum2 += (int) Math.pow((value.get()-mean),2);
+    for (int i=0; i<size; i++) {
+      sum2 += (double) Math.pow((list.get(i)-mean),2);
     }
-    variance = sum2/count;
+
+    double variance = sum2/size;
     double stdD = (double) Math.sqrt(variance);
 
 
