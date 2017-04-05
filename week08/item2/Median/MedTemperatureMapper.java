@@ -21,8 +21,11 @@ public class MedTemperatureMapper
     int airTemperature;
     if (line.charAt(87) == '+') { // parseInt doesn't like leading plus signs
       airTemperature = Integer.parseInt(line.substring(88, 92));
-    } else {
+    } else if (line.charAt(87) == '-') {
       airTemperature = Integer.parseInt(line.substring(87, 92));
+    }
+    else {
+      airTemperature = 0;
     }
     String quality = line.substring(92, 93);
     if (airTemperature != MISSING && quality.matches("[01459]")) {

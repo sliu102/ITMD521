@@ -7,7 +7,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class AvgOfMaxMinTemperatureMapper
+public class MalFormedMapper
   extends Mapper<LongWritable, Text, Text, IntWritable> {
 
   private static final int MISSING = 9999;
@@ -17,19 +17,13 @@ public class AvgOfMaxMinTemperatureMapper
       throws IOException, InterruptedException {
 
     String line = value.toString();
+    int stationId=0;
     String year = line.substring(15, 19);
-    int airTemperature;
-    if (line.charAt(87) == '+') { // parseInt doesn't like leading plus signs
-      airTemperature = Integer.parseInt(line.substring(88, 92));
-    } else if (line.charAt(87) == '-') {
-      airTemperature = Integer.parseInt(line.substring(87, 92));
-    }
-    else {
-      airTemperature = 0;
-    }
+    if (line.charAt(87) != '+'&&line.charAt(87) != '-') { // parseInt doesn't like leading plus signs
+      stationId =Integer.parseInt(line.substring(4, 10));
+    } 
     String quality = line.substring(92, 93);
-    if (airTemperature != MISSING && quality.matches("[01459]")) {
-      context.write(new Text(year), new IntWritable(airTemperature));
-    }
+    context.write(new Text(year), new IntWritable(stationId));
+  
   }
 }
