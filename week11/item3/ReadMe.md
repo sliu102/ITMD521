@@ -3,7 +3,7 @@ Item 3
 ### output of MinWidget job:
  ![image](https://github.com/sliu102/ITMD521/blob/master/week11/item3/output.jpeg)
 
-###MinWidget.java
+### MinWidget.java
 
 ```java  
 import java.io.IOException;
