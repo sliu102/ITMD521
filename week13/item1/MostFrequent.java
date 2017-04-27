@@ -1,7 +1,6 @@
 // cc MostFrequent Application to find the most frequently url in the log dataset
 // vv MostFrequent
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -26,7 +25,7 @@ public class MostFrequent {
     job.setReducerClass(MostFrequentReducer.class);
 
     job.setOutputKeyClass(Text.class);
-    job.setOutputValueClass(IntWritable.class);
+    job.setOutputValueClass(Text.class);
 
     System.exit(job.waitForCompletion(true) ? 0 : 1);
   }

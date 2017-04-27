@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-public class MaxMinTemperatureReducer
+public class MostFrequentReducer
   extends Reducer<Text, Text, Text, Text> {
 
   @Override
@@ -26,11 +26,12 @@ public class MaxMinTemperatureReducer
         map.put(tempUrl,1);
       }
     }
+    String mfUrl;
 
     int maxCount=(Collections.max(map.values()));  // This will return max value in the Hashmap
         for (Entry<String, Integer> entry : map.entrySet()) {  // Itrate through hashmap
             if (entry.getValue()==maxCount) {
-                String mfUrl = entry.getKey();     // Print the key with max value
+                mfUrl = entry.getKey();     // Print the key with max value
             }
         }
 
