@@ -25,6 +25,7 @@ public class MostFrequentMapper
       if (parts[10].equals("200")&&!parts[4].matches(".*index.$")) { 
       url = parts[4];
       context.write(new Text(month), new Text(url));//can be switched to day
+      //context.write(new Text(day), new Text(url));
       } 
     }
     
