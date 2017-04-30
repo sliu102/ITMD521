@@ -12,4 +12,5 @@ Item 6
 
 ### item5: Pig is easy to handle when you are familiar to its syntax.
 
-##2. The reason why I choose Reducer is that we have practiced a lot in week 7, week 8 assignment.
+
+## 2. The reason why I choose Reducer is that we have practiced a lot in week 7, week 8 assignment.
