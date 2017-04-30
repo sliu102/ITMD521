@@ -20,7 +20,7 @@ public class MostFrequent extends Configured implements Tool {
       extends Mapper<LongWritable, Text, Text, Logs> {
 
     private Logs mostFrequent_url = null;
-    private String month=null;
+    private String dat=null;
 
     public void map(LongWritable k, Text v, Context context) 
            throws IOException, InterruptedException {
@@ -31,23 +31,24 @@ public class MostFrequent extends Configured implements Tool {
         // Got a malformed record. Ignore it.
         return;
       }
-      String dat = logs.get_dat();
+
+      dat = logs.get_dat();
       String url = logs.get_url();
       String status = logs.get_status(); 
 
       if(mostFrequent_url == null
-            ||null !=month&&dat.length()==10){
-            month = dat.substring(0,7);
+            ||null !=dat&&dat.length()==10){
+        if (status.equals("200")&&!url.matches(".*index.$")) { 
             mostFrequent_url = logs;
-            context.write(new Text(month), mostFrequent_url);
-        
+            context.write(new Text(dat), mostFrequent_url);
+        }
       }
     }
 
     public void cleanup(Context context)
         throws IOException, InterruptedException {
       if (null != mostFrequent_url) {
-        context.write(new Text(month), mostFrequent_url);
+        context.write(new Text(dat), mostFrequent_url);
       }
     }
   }
